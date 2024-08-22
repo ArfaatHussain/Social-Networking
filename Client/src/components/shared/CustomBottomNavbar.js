@@ -14,9 +14,9 @@ const CustomBottomNavBar = () => {
   };
 
   return (
-    <>
+    
       <Tab.Navigator
-        initialRouteName="Home"
+        initialRouteName="Home Screen"
         tabBar={(props) => <CustomTabBar {...props} />}
         screenOptions={({ route }) => ({
           tabBarActiveTintColor: '#6A7ADA',
@@ -24,14 +24,14 @@ const CustomBottomNavBar = () => {
           headerShown: false,
         })}
       >
-        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Home Screen" component={HomeScreen} />
         <Tab.Screen name="Leaderboard" component={HomeScreen} />
         <Tab.Screen name="Updates" component={HomeScreen} />
         <Tab.Screen name="Chats" component={HomeScreen} />
         <Tab.Screen name='Profile' component={HomeScreen} />
       </Tab.Navigator>
      
-    </>
+    
   );
 };
 

@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, Pressable } from 'react-native';
 import { MoveUp, MoveDown, MessageCircle } from 'lucide-react-native';
 import ThreeDots from '../shared/ThreeDots';
+import { useNavigation } from '@react-navigation/native';
+
 const Post = ({ post }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const toggleExpanded = () => setIsExpanded(!isExpanded);
+
+  const navigation = useNavigation();
 
   const renderText = () => {
     if (isExpanded || post.text.length <= 100) {
@@ -56,10 +60,12 @@ const Post = ({ post }) => {
           <MoveUp color={'#F51F46'} size={18} style={{ marginLeft: 4 }} />
           <Text style={styles.postFooterText}>{post.likes}</Text>
         </View>
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <Pressable
+        onPress={() =>navigation.navigate("Comment Screen",{post:post})}
+        style={{ flexDirection: 'row', alignItems: 'center' }}>
           <MessageCircle color={'#FFFFFF'} size={20} />
           <Text style={styles.postFooterText}>{post.comments}</Text>
-        </View>
+        </Pressable>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <Image source={require('../../../assets/images/Share.png')} style={{ height: 20, width: 20 }} resizeMode='contain' />
           <Text style={styles.postFooterText}>{post.shares}</Text>

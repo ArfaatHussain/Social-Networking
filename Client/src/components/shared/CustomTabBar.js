@@ -9,8 +9,8 @@ const CustomTabBar = (props) => {
 
   const handleCenterPress = () => {
     const currentRoute = props.state.routeNames[props.state.index];
-    if (currentRoute !== 'Home') {
-      props.navigation.navigate('Home');
+    if (currentRoute !== 'Home Screen') {
+      props.navigation.navigate('Home Screen');
     } else {
       navigation.navigate('ExpenseScreen');
     }
@@ -69,7 +69,7 @@ const CustomTabBar = (props) => {
             label = "Profile";
           }
 
-          if (route.name !== 'Home') {
+          if (route.name !== 'Home Screen') {
             return (
               <TouchableOpacity
                 key={index}
